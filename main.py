@@ -6,7 +6,7 @@ pg.init()
 #creating window
 WIDTH, HEIGHT = 1000, 500
 WIN = pg.display.set_mode((WIDTH, HEIGHT))
-pg.display.set_caption("gaymer game")
+pg.display.set_caption("gamer game")
 
 
 #variables and images
