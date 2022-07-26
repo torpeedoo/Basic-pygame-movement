@@ -45,11 +45,9 @@ def main():
 
         #key hold listener
         if keys[pg.K_a]:
-            if abs(playerVelocityX)<5:
-                playerVelocityX = playerVelocityX-0.2
+            if abs(playerVelocityX)<7: playerVelocityX = playerVelocityX-0.2
         if keys[pg.K_d]:
-            if abs(playerVelocityX)<5:
-                playerVelocityX = playerVelocityX+0.2
+            if abs(playerVelocityX)<7: playerVelocityX = playerVelocityX+0.2
 
 
         #showing images on screen
@@ -68,8 +66,13 @@ def main():
         #simulating air drag/ground friction
         if playerVelocityX<0:
             playerVelocityX = playerVelocityX+0.06
+        elif playerVelocityX<0.1 and playerVelocityX>0:
+            playerVelocityX=0
+        
         if playerVelocityX>0:
             playerVelocityX = playerVelocityX-0.06
+        elif playerVelocityX>-0.1 and playerVelocityX<0:
+            playerVelocityX=0
 
 
         #ground collision
@@ -87,7 +90,7 @@ def main():
             playerLocationX=1050
     
 
-        print(math.floor(playerLocationX), math.floor(playerLocationY), math.floor(playerVelocityX), math.floor(playerVelocityY), grounded)
+        print(math.floor(playerLocationX), math.floor(playerLocationY), playerVelocityX, math.floor(playerVelocityY), grounded)
         pg.display.update()     
     
     pg.quit()
