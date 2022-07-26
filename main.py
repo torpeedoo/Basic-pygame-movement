@@ -65,12 +65,12 @@ def main():
 
         #simulating air drag/ground friction
         if playerVelocityX<0:
-            playerVelocityX = playerVelocityX+0.06
+            playerVelocityX = playerVelocityX+0.08
         elif playerVelocityX<0.1 and playerVelocityX>0:
             playerVelocityX=0
         
         if playerVelocityX>0:
-            playerVelocityX = playerVelocityX-0.06
+            playerVelocityX = playerVelocityX-0.08
         elif playerVelocityX>-0.1 and playerVelocityX<0:
             playerVelocityX=0
 
@@ -78,7 +78,8 @@ def main():
         #ground collision
         if playerLocationY>=450:
             grounded=True
-            playerVelocityY=playerVelocityY-playerVelocityY
+            if playerVelocityY>1: playerVelocityY=playerVelocityY-(playerVelocityY*1.2)
+            else: playerVelocityY=playerVelocityY-playerVelocityY
         else:
             grounded=False
 
